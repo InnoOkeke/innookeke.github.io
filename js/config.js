@@ -15,6 +15,7 @@ export const config = {
   // Repository names to exclude from display
   excludeRepos: [
     'innookeke.github.io',
+    'kellon-home',
     'MeluriAINFT',
     'spectra-market',
     'kellon'
@@ -36,7 +37,7 @@ export const config = {
   cacheExpiry: 3600000, // 1 hour = 60 * 60 * 1000
   
   // Cache version - increment this to force cache refresh
-  cacheVersion: 6,
+  cacheVersion: 9,
   
   // CSS selector for the project container
   containerSelector: '.projects',

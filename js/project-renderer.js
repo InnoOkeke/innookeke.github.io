@@ -152,6 +152,9 @@ export class ProjectRenderer {
     // Extract domain from URL for display
     const urlDisplay = this.extractDomain(project.liveUrl);
     
+    // Debug log to see what's happening
+    console.log('Creating placeholder for:', project.name, 'liveUrl:', project.liveUrl, 'urlDisplay:', urlDisplay);
+    
     // Add URL text
     const urlText = document.createElement('div');
     urlText.className = 'project-url-display';
