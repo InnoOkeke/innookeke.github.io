@@ -8,7 +8,7 @@
   <!-- SEO + OpenGraph -->
   <meta name="description" content="Innocent Okeke – Web3, Blockchain, AI & Full‑Stack Developer building real‑world products." />
   <meta property="og:title" content="Innocent Okeke | Web3 Developer" />
-  <meta property="og:description" content="Blockchain, AI, Web3 & Full‑Stack Engineer" />
+  <meta property="og:description" content="Blockchain, AI, Web3 & Vibe Coder" />
   <meta property="og:image" content="https://avatars.githubusercontent.com/innookeke" />
   <meta property="og:type" content="website" />
 
@@ -170,6 +170,175 @@
     @media (max-width: 600px) {
       header h1 { font-size: 2.1rem; }
     }
+
+    /* Dynamic Project Cards */
+    .project-card {
+      background: linear-gradient(180deg, #020617, #020617);
+      padding: 26px;
+      border-radius: 20px;
+      border: 1px solid rgba(148,163,184,0.15);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+      transition: transform 0.4s, box-shadow 0.4s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 30px 70px rgba(34,211,238,0.2);
+    }
+
+    .project-thumbnail {
+      height: 160px;
+      border-radius: 14px;
+      margin-bottom: 18px;
+      overflow: hidden;
+    }
+
+    .project-thumbnail-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .project-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #020617;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    .project-initial {
+      font-size: 3rem;
+      color: white;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    }
+
+    .project-url-display {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: white;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+      padding: 0 20px;
+      text-align: center;
+      word-break: break-word;
+      line-height: 1.4;
+    }
+
+    .project-name {
+      margin-bottom: 10px;
+      font-size: 1.3rem;
+      color: #e2e8f0;
+    }
+
+    .project-description {
+      font-size: 0.95rem;
+      color: #94a3b8;
+      margin-bottom: 12px;
+    }
+
+    .project-topics {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .project-topic {
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(34,211,238,0.12);
+      border: 1px solid rgba(34,211,238,0.3);
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #22d3ee;
+    }
+
+    .project-links {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .project-link {
+      display: inline-block;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      transition: 0.3s;
+    }
+
+    .project-link-primary {
+      background: #22d3ee;
+      color: #020617;
+    }
+
+    .project-link-primary:hover {
+      background: #0ea5e9;
+      transform: translateY(-2px);
+    }
+
+    .project-link-secondary {
+      background: rgba(34,211,238,0.12);
+      border: 1px solid rgba(34,211,238,0.3);
+      color: #22d3ee;
+    }
+
+    .project-link-secondary:hover {
+      background: rgba(34,211,238,0.2);
+    }
+
+    /* Loading State */
+    .projects-loading {
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    .loading-spinner {
+      width: 50px;
+      height: 50px;
+      border: 4px solid rgba(34,211,238,0.2);
+      border-top-color: #22d3ee;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin: 0 auto 20px;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .projects-loading p {
+      color: #94a3b8;
+      font-size: 1.1rem;
+    }
+
+    /* Error State */
+    .projects-error {
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    .error-message {
+      color: #f87171;
+      font-size: 1.1rem;
+      padding: 20px;
+      background: rgba(248,113,113,0.1);
+      border: 1px solid rgba(248,113,113,0.3);
+      border-radius: 12px;
+      display: inline-block;
+    }
+
+    /* Empty State */
+    .projects-empty {
+      text-align: center;
+      padding: 60px 20px;
+      color: #94a3b8;
+      font-size: 1.1rem;
+    }
   </style>
 </head>
 
@@ -178,7 +347,7 @@
 <header class="fade">
   <img class="avatar" src="https://avatars.githubusercontent.com/innookeke" alt="Innocent Okeke" />
   <h1>Innocent <span>Okeke</span></h1>
-  <p>Web3 • Blockchain • AI • Full‑Stack Developer</p>
+  <p>Web3 • Blockchain • AI • Vibe Coder</p>
 
   <nav>
     <a href="#projects">Projects</a>
@@ -211,13 +380,6 @@
       <h3>Kellon</h3>
       <p>Send and receive USDC/USDT on Stellar, Base and Celo.</p>
       <a href="https://kellon.xyz">Visit Site</a>
-    </div>
-
-    <div class="card">
-      <img class="thumb" src="images/oweza.png" alt="Oweza Mobile App" />
-      <h3>Oweza Mobile App</h3>
-      <p>Send and Receive cUSD via email on Celo network.</p>
-      <a href="#">Mobile App Project</a>
     </div>
 
     <div class="card">
@@ -259,6 +421,27 @@
     • Phone: <a href="tel:+2348126440637">+234 812 644 0637</a>
   </p>
 </footer>
+
+</body>
+</html>
+
+<!-- Project Fetcher Module -->
+<script type="module">
+  import { ProjectFetcher } from './js/project-fetcher.js';
+
+  // Initialize project fetcher when DOM is ready
+  document.addEventListener('DOMContentLoaded', async () => {
+    try {
+      const fetcher = new ProjectFetcher({
+        containerSelector: '.projects'
+      });
+      
+      await fetcher.initialize();
+    } catch (error) {
+      console.error('Failed to initialize ProjectFetcher:', error);
+    }
+  });
+</script>
 
 </body>
 </html>
